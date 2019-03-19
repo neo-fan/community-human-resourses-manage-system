@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+  
+  
+  
+ <configuration>
+ 	<properties resource="database.properties" />
+ 	<typeAliases>
+ 		<package name="com.cprms.domain"/>
+ 	</typeAliases>
+  	<environments default="onlineEM" >
+  
+	<environment id="onlineEM">
+  		<transactionManager type="JDBC" />
+  		<dataSource type="POOLED">
+  			<property name="driver" value="${jdbc.driver}"/>
+  			<property name="url" value="${jdbc.url}"/>
+  			<property name="username" value="${jdbc.user}"/>
+  			<property name="password" value="${jdbc.password}"/>
+  		</dataSource>
+  	</environment>
+  	
+  </environments>
+   <!-- 导入映射文件 -->
+  <mappers>
+  	<mapper resource="com/cprms/dao/mapper.xml"/>
+  </mappers>
+  </configuration>
